@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>SRT X CHEATS | API KEY MANAGER</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ============================================================
+    VIEW TOGGLE BAR
+    ============================================================ -->
+    <div class="view-toggle-bar" id="viewToggleBar">
+        <button class="vtbtn" id="vtMobile" onclick="setViewMode('mobile')">
+            <i class="fas fa-mobile-alt"></i> MOBILE
+        </button>
+        <span>|</span>
+        <button class="vtbtn" id="vtDesktop" onclick="setViewMode('desktop')">
+            <i class="fas fa-desktop"></i> DESKTOP
+        </button>
+    </div>
+
+    <!-- ============================================================
+    AUTH SCREEN
+    ============================================================ -->
+    <div id="authSection" class="auth-screen">
+        <div class="auth-bg">
+            <div class="grid-overlay"></div>
+            <div class="glow-orb orb1"></div>
+            <div class="glow-orb orb2"></div>
+        </div>
+        <div class="auth-container">
+            <div class="auth-logo">
+                <div class="logo-hex"><i class="fas fa-crosshairs"></i></div>
+                <h1>SRT<span>X</span>CHEATS</h1>
+                <p>PREMIUM ACCESS PORTAL</p>
+            </div>
+
+            <!-- LOGIN -->
+            <div class="auth-card" id="loginBox">
+                <div class="card-tag">SIGN IN</div>
+                <div class="field-group">
+                    <label>EMAIL ADDRESS</label>
+                    <div class="field-wrap">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="loginEmail" placeholder="your@gmail.com" autocomplete="email">
+                    </div>
+                </div>
+                <div class="field-group">
+                    <label>PASSWORD</label>
+                    <div class="field-wrap">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPass" placeholder="••••••••">
+                    </div>
+                </div>
+                <p style="text-align:right;margin:-6px 0 12px;">
+                    <span onclick="handleForgotPassword()" style="font-size:12px;color:var(--accent3);cursor:pointer;font-family:'Inter',sans-serif;font-weight:500;">
+                        <i class="fas fa-key" style="font-size:10px;"></i> Forgot Password?
+                    </span>
+                </p>
+                <button id="loginBtn" class="cta-btn">
+                    <span>ACCESS STORE</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <div style="display:flex;align-items:center;gap:10px;margin:14px 0 10px;">
+                    <div style="flex:1;height:1px;background:var(--border);"></div>
+                    <span style="font-size:10px;color:var(--text3);font-family:var(--font-display);letter-spacing:0.4px;">OR</span>
+                    <div style="flex:1;height:1px;background:var(--border);"></div>
+                </div>
+                <button onclick="handleGoogleSignIn()" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:11px;border-radius:10px;border:1px solid var(--border2);background:rgba(99,102,241,0.06);color:var(--text);font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.5px;cursor:pointer;transition:all 0.2s;">
+                    <svg width="17" height="17" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    CONTINUE WITH GOOGLE
+                </button>
+                <p class="auth-switch">New here? <span onclick="toggleAuth('signup')">Create Account →</span></p>
+            </div>
+
+            <!-- SIGNUP -->
+            <div class="auth-card hidden" id="signupBox">
+                <div class="card-tag">REGISTER</div>
+                <div class="field-group">
+                    <label>EMAIL ADDRESS</label>
+                    <div class="field-wrap">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="regEmail" placeholder="your@gmail.com">
+                    </div>
+                </div>
+                <div class="field-group">
+                    <label>CREATE PASSWORD</label>
+                    <div class="field-wrap">
+                        <i class="fas fa-key"></i>
+                        <input type="password" id="regPass" placeholder="Min 6 characters">
+                    </div>
+                </div>
+                <button id="signupBtn" class="cta-btn">
+                    <span>CREATE ACCOUNT</span>
+                    <i class="fas fa-user-plus"></i>
+                </button>
+                <div style="display:flex;align-items:center;gap:10px;margin:14px 0 10px;">
+                    <div style="flex:1;height:1px;background:var(--border);"></div>
+                    <span style="font-size:10px;color:var(--text3);font-family:var(--font-display);letter-spacing:0.4px;">OR</span>
+                    <div style="flex:1;height:1px;background:var(--border);"></div>
+                </div>
+                <button onclick="handleGoogleSignIn()" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:11px;border-radius:10px;border:1px solid var(--border2);background:rgba(99,102,241,0.06);color:var(--text);font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.5px;cursor:pointer;transition:all 0.2s;">
+                    <svg width="17" height="17" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    SIGN UP WITH GOOGLE
+                </button>
+                <p class="auth-switch">Already a member? <span onclick="toggleAuth('login')">Login →</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+    MAIN STORE UI
+    ============================================================ -->
+    <div id="storeUI" class="hidden">
+
+        <div id="menuOverlay" class="overlay"></div>
+
+        <!-- SIDE DRAWER -->
+        <aside id="sideDrawer" class="drawer">
+            <div class="drawer-header">
+                <div class="user-avatar"><i class="fas fa-user-astronaut"></i></div>
+                <div class="user-info">
+                    <p id="displayEmail" class="user-email">user@gmail.com</p>
+                    <span class="user-badge">MEMBER</span>
+                </div>
+            </div>
+
+            <div class="drawer-balance">
+                <span class="bal-label"><i class="fas fa-coins" style="color:var(--gold);margin-right:4px;"></i> WALLET</span>
+                <span class="bal-amount"><span class="cur">Rs</span> <span id="drawerBalance">0</span></span>
+            </div>
+
+            <div class="drawer-time">
+                <i class="far fa-clock"></i>
+                <span id="currentTime">00:00:00</span>
+                <div class="service-hours">Service hours: 8AM – 10PM</div>
+            </div>
+            <nav class="drawer-nav">
+                <button class="nav-btn" onclick="openModal('profileModal')">
+                    <i class="fas fa-id-card"></i><span>Profile Settings</span><i class="fas fa-chevron-right nav-arr"></i>
+                </button>
+                <button class="nav-btn" onclick="openModal('passModal')">
+                    <i class="fas fa-shield-alt"></i><span>Change Password</span><i class="fas fa-chevron-right nav-arr"></i>
+                </button>
+                <button class="nav-btn" onclick="openModal('msgModal')">
+                    <i class="fas fa-bullhorn"></i><span>Admin Notice</span><i class="fas fa-chevron-right nav-arr"></i>
+                </button>
+                <button class="nav-btn" onclick="openModal('historyModal')">
+                    <i class="fas fa-receipt"></i><span>Order History</span><i class="fas fa-chevron-right nav-arr"></i>
+                </button>
+                <!-- === API KEY MANAGER — FULL PAGE === -->
+                <button class="nav-btn api-nav-btn" onclick="openApiFullPage()">
+                    <i class="fas fa-plug" style="color:var(--accent3)!important;"></i>
+                    <span style="color:var(--accent3);font-weight:700;">API Keys</span>
+                    <i class="fas fa-chevron-right nav-arr"></i>
+                </button>
+                <button class="nav-btn topup-btn" onclick="openModal('topupModal')">
+                    <i class="fas fa-plus-circle" style="color:var(--gold)!important;"></i>
+                    <span style="color:var(--gold);font-weight:700;">Top-up Balance</span>
+                    <i class="fas fa-chevron-right nav-arr"></i>
+                </button>
+                <a href="https://samratsubedi163-star.github.io/Support-/" target="_blank" class="nav-btn">
+                    <i class="fab fa-whatsapp"></i><span>Help Center</span><i class="fas fa-chevron-right nav-arr"></i>
+                </a>
+                <a href="https://srtxcheat.github.io/Apk/" target="_blank" class="nav-btn">
+                    <i class="fas fa-upload"></i><span>APK Update</span><i class="fas fa-chevron-right nav-arr"></i>
+                </a>
+                <button class="nav-btn logout" onclick="handleLogout()">
+                    <i class="fas fa-power-off"></i><span>Logout</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- TOP NAV -->
+        <header class="topbar">
+            <button class="icon-btn" id="menuBtn">
+                <span class="burger"><span></span><span></span><span></span></span>
+            </button>
+            <div class="topbar-logo">SRT<span>X</span>CHEATS</div>
+            <div class="status-pill" id="statusPill">
+                <span class="status-dot"></span>
+                <span id="userStatus">Active</span>
+            </div>
+        </header>
+
+        <!-- STORE CONTENT -->
+        <main class="store-main">
+            <div class="store-header">
+                <div class="store-title-row">
+                    <h2 class="store-title">AVAILABLE SERVICE & PRODUCT</h2>
+                    <span class="store-count" id="productCount">19 PRODUCTS</span>
+                </div>
+                <p class="store-sub">Tap a product to view pricing</p>
+
+                <div class="search-wrap">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search cheats...">
+                    <button class="search-clear hidden" id="searchClear" onclick="clearSearch()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="filter-chips">
+                    <div class="chip chip-all active-chip" onclick="filterChip(this,'all')"><i class="fas fa-border-all"></i> ALL</div>
+                    <div class="chip chip-nonroot" onclick="filterChip(this,'nonroot')"><i class="fas fa-mobile-alt"></i> NONROOT</div>
+                    <div class="chip chip-root" onclick="filterChip(this,'root')"><i class="fas fa-bug"></i> ROOT</div>
+                    <div class="chip chip-ios" onclick="filterChip(this,'ios')"><i class="fab fa-apple"></i> iOS</div>
+                    <div class="chip chip-pc" onclick="filterChip(this,'pc')"><i class="fas fa-desktop"></i> PC</div>
+                    <div class="chip chip-ranspush" onclick="filterChip(this,'rankpush')"><i class="fas fa-star"></i> RANKPUSH</div>
+                </div>
+            </div>
+
+            <div class="products-list" id="productsList">
+                <!-- ===== DRIP CLINT PROXY ===== -->
+                <div class="product-row" data-tags="nonroot" data-name="DRIP CLINT PROXY" data-pid="91" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p18_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/Jnwh1T2q/Screenshot-20260421-102516.jpg" alt="Drip Clint"></div>
+                        <div class="prod-details">
+                            <h3>DRIP CLINT PROXY <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-nonroot"><i class="fas fa-mobile-alt"></i> NONROOT</span>
+                                <span class="prod-platform"><i class="fas fa-globe"></i> All Devices</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">5 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p18_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'DRIP PROXY 1 DAY',120,'1 DaYs')"><span><i class="fas fa-globe"></i> 1 DAY ACCESS</span><b>Rs 120</b></div>
+                        <div class="price-item" onclick="selectItem(this,'DRIP PROXY 3 DAY',220,'3 DaYs')"><span><i class="fas fa-globe"></i> 3 DAY ACCESS</span><b>Rs 220</b></div>
+                        <div class="price-item" onclick="selectItem(this,'DRIP PROXY 7 DAY',450,'7 DaYs')"><span><i class="fas fa-globe"></i> 7 DAYS ACCESS</span><b>Rs 450</b></div>
+                        <div class="price-item" onclick="selectItem(this,'DRIP PROXY 15 DAY',650,'15 DaYs')"><span><i class="fas fa-globe"></i> 15 DAYS ACCESS</span><b>Rs 650</b></div>
+                        <div class="price-item" onclick="selectItem(this,'DRIP PROXY 30 DAY',920,'30 DaYs')"><span><i class="fas fa-globe"></i> 30 DAYS ACCESS</span><b>Rs 920</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== DRIP CLINT GLOBAL ===== -->
+                <div class="product-row" data-tags="nonroot" data-name="DRIP CLINT GLOBAL" data-pid="62" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p1_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/Jnwh1T2q/Screenshot-20260421-102516.jpg" alt="Drip Clint"></div>
+                        <div class="prod-details">
+                            <h3>DRIP CLINT GLOBAL <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-nonroot"><i class="fas fa-mobile-alt"></i> NONROOT</span>
+                                <span class="prod-platform"><i class="fas fa-globe"></i> All Devices</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">5 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p1_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'DRIP 1 DAY',120,'1 DaYS NONROOT')"><span><i class="fas fa-globe"></i> 1 DAY ACCESS</span><b>Rs 120</b></div>
+                        <div class="price-item" onclick="selectItem(this,'DRIP 3 DAY',220,'3 DaYS NONROOT')"><span><i class="fas fa-globe"></i> 3 DAY ACCESS</span><b>Rs 220</b></div>
+                        <div class="price-item" onclick="selectItem(this,'DRIP 7 DAY',450,'7 DaYS NONROOT')"><span><i class="fas fa-globe"></i> 7 DAYS ACCESS</span><b>Rs 450</b></div>
+                        <div class="price-item" onclick="selectItem(this,'DRIP 15 DAY',650,'15 DaYS NONROOT')"><span><i class="fas fa-globe"></i> 15 DAYS ACCESS</span><b>Rs 650</b></div>
+                        <div class="price-item" onclick="selectItem(this,'DRIP 30 DAY',920,'30 DaYS NONROOT')"><span><i class="fas fa-globe"></i> 30 DAYS ACCESS</span><b>Rs 920</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== DRIP ROOT ===== -->
+                <div class="product-row" data-tags="root" data-name="DRIP CLINT ROOT" data-pid="63" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p2_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/Jnwh1T2q/Screenshot-20260421-102516.jpg" alt="Drip Root"></div>
+                        <div class="prod-details">
+                            <h3>DRIP CLINT (ROOT) <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-root"><i class="fa-solid fa-bug"></i> ROOT</span>
+                                <span class="prod-platform"><i class="fas fa-mobile-alt"></i> Root Device</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">3 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p2_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'DRIP ROOT 1 DAY',170,'1 DaYs')"><span><i class="fas fa-mobile"></i> 1 DAY ACCESS</span><b>Rs 170</b></div>
+                        <div class="price-item" onclick="selectItem(this,'DRIP ROOT 7 DAY',550,'7 DaYs')"><span><i class="fas fa-mobile"></i> 7 DAYS ACCESS</span><b>Rs 550</b></div>
+                        <div class="price-item" onclick="selectItem(this,'DRIP ROOT 30 DAY',1080,'30 DaYS ROOT')"><span><i class="fas fa-mobile"></i> 30 DAYS ACCESS</span><b>Rs 1080</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== DRIP PC ===== -->
+                <div class="product-row" data-tags="pc" data-name="DRIP CLINT PC" data-pid="44" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p3_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/Jnwh1T2q/Screenshot-20260421-102516.jpg" alt="Drip PC"></div>
+                        <div class="prod-details">
+                            <h3>DRIP CLINT (PC) <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-pc"><i class="fas fa-desktop"></i> PC</span>
+                                <span class="prod-platform"><i class="fas fa-desktop"></i> Emulator</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">4 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p3_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'DRIP PC 1 DAY',200,'1 DaYS PC AIMKILL')"><span><i class="fas fa-desktop"></i> 1 DAY ACCESS</span><b>Rs 200</b></div>
+                        <div class="price-item" onclick="selectItem(this,'DRIP PC 7 DAY',650,'7 DaYS PC AIMKILL')"><span><i class="fas fa-desktop"></i> 7 DAYS ACCESS</span><b>Rs 650</b></div>
+                        <div class="price-item" onclick="selectItem(this,'DRIP PC 15 DAY',900,'15 DaYS PC AIMKILL')"><span><i class="fas fa-desktop"></i> 15 DAYS ACCESS</span><b>Rs 900</b></div>
+                        <div class="price-item" onclick="selectItem(this,'DRIP PC 30 DAY',1450,'30 DaYS PC AIMKILL')"><span><i class="fas fa-desktop"></i> 30 DAYS ACCESS</span><b>Rs 1450</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== HG NON ROOT ===== -->
+                <div class="product-row" data-tags="nonroot" data-name="HG CHEATS NON ROOT" data-pid="65" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p4_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/fRGsXVfy/Screenshot-20260421-102611.jpg" alt="HG Non Root"></div>
+                        <div class="prod-details">
+                            <h3>HG CHEATS (NON ROOT) <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-nonroot"><i class="fas fa-mobile-alt"></i> NONROOT</span>
+                                <span class="prod-platform"><i class="fas fa-globe"></i> All Devices</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">4 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p4_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'HG CHEATS 1 DAY',130,'1 DaYs Root + Nonroot')"><span><i class="fas fa-gift"></i> 1 DAY ACCESS</span><b>Rs 130</b></div>
+                        <div class="price-item" onclick="selectItem(this,'HG CHEATS 7 DAY',350,'7 DaYs Root+Nonroot')"><span><i class="fas fa-gift"></i> 7 DAYS ACCESS</span><b>Rs 350</b></div>
+                        <div class="price-item" onclick="selectItem(this,'HG CHEATS 10 DAY',450,'10 DaYs Root+Nonroot')"><span><i class="fas fa-gift"></i> 10 DAYS ACCESS</span><b>Rs 450</b></div>
+                        <div class="price-item" onclick="selectItem(this,'HG CHEATS 30 DAY',750,'30 DaYs Root+Nonroot')"><span><i class="fas fa-gift"></i> 30 DAYS ACCESS</span><b>Rs 750</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== HG PROXY NON ROOT ===== -->
+                <div class="product-row" data-tags="nonroot" data-name="HG CHEATS PROXY NON ROOT" data-pid="123" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p21_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/fRGsXVfy/Screenshot-20260421-102611.jpg" alt="HG Non Root"></div>
+                        <div class="prod-details">
+                            <h3>HG CHEATS PROXY (NON ROOT) <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-nonroot"><i class="fas fa-mobile-alt"></i> NONROOT</span>
+                                <span class="prod-platform"><i class="fas fa-globe"></i> All Devices</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">4 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p21_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'HG CHEATS PROXY 1 DAY',130,'1 DaYs')"><span><i class="fas fa-gift"></i> 1 DAY ACCESS</span><b>Rs 130</b></div>
+                        <div class="price-item" onclick="selectItem(this,'HG CHEATS PROXY 7 DAY',350,'7 DaYs')"><span><i class="fas fa-gift"></i> 7 DAYS ACCESS</span><b>Rs 350</b></div>
+                        <div class="price-item" onclick="selectItem(this,'HG CHEATS PROXY 10 DAY',450,'10 DaYs')"><span><i class="fas fa-gift"></i> 10 DAYS ACCESS</span><b>Rs 450</b></div>
+                        <div class="price-item" onclick="selectItem(this,'HG CHEATS PROXY 30 DAY',750,'30 DaYs')"><span><i class="fas fa-gift"></i> 30 DAYS ACCESS</span><b>Rs 750</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== HG ROOT ===== -->
+                <div class="product-row" data-tags="root" data-name="HG CHEATS ROOT" data-pid="65" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p5_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/fRGsXVfy/Screenshot-20260421-102611.jpg" alt="HG Root"></div>
+                        <div class="prod-details">
+                            <h3>HG CHEATS (ROOT) <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-root"><i class="fas fa-bug"></i> ROOT</span>
+                                <span class="prod-platform"><i class="fas fa-mobile-alt"></i> Root APK</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">4 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p5_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'HG CHEATS ROOT 1 DAY',130,'1 DaYs Root + Nonroot')"><span><i class="fas fa-mobile-alt"></i> 1 DAY ACCESS</span><b>Rs 130</b></div>
+                        <div class="price-item" onclick="selectItem(this,'HG CHEATS ROOT 7 DAY',350,'7 DaYs Root+Nonroot')"><span><i class="fas fa-mobile-alt"></i> 7 DAYS ACCESS</span><b>Rs 350</b></div>
+                        <div class="price-item" onclick="selectItem(this,'HG CHEATS ROOT 10 DAY',450,'10 DaYs Root+Nonroot')"><span><i class="fas fa-mobile-alt"></i> 10 DAYS ACCESS</span><b>Rs 450</b></div>
+                        <div class="price-item" onclick="selectItem(this,'HG CHEATS ROOT 30 DAY',750,'30 DaYs Root+Nonroot')"><span><i class="fas fa-mobile-alt"></i> 30 DAYS ACCESS</span><b>Rs 750</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== PATO TEAM ===== -->
+                <div class="product-row" data-tags="root nonroot" data-name="PATO TEAM" data-pid="54" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p6_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/RV2ypjJM/Screenshot-20260421-102813.jpg" alt="Pato Team"></div>
+                        <div class="prod-details">
+                            <h3>PATO TEAM <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-nonroot"><i class="fas fa-mobile-alt"></i>ROOT + NONROOT</span>
+                                <span class="prod-platform"><i class="fas fa-crown"></i> Brutal &amp; Normal MIX</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">4 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p6_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'PATO MIX 3 DAY',550,'3 DaYs All Colours Mix')"><span><i class="fas fa-crown"></i> MIX 3 DAYS</span><b>Rs 550</b></div>
+                        <div class="price-item" onclick="selectItem(this,'PATO MIX 7 DAY',850,'7 DaYs All Colours Mix')"><span><i class="fas fa-crown"></i> MIX 7 DAYS</span><b>Rs 850</b></div>
+                        <div class="price-item" onclick="selectItem(this,'PATO MIX 15 DAY',1250,'15 DaYs All Colours Mix')"><span><i class="fas fa-crown"></i> MIX 15 DAYS</span><b>Rs 1250</b></div>
+                        <div class="price-item" onclick="selectItem(this,'PATO MIX 30 DAY',1550,'30 DaYs All Colours Mix')"><span><i class="fas fa-crown"></i> MIX 30 DAYS</span><b>Rs 1550</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== IOS FLUORITE ===== -->
+                <div class="product-row" data-tags="ios" data-name="IOS FLUORITE" data-pid="58" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p7_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/R07kHX0k/fluorite-ios-ff-og-1765886845.webp" alt="iOS Fluorite"></div>
+                        <div class="prod-details">
+                            <h3>IOS FLUORITE <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-ios"><i class="fab fa-apple"></i> iOS</span>
+                                <span class="prod-platform"><i class="fab fa-apple"></i> iPhone</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">4 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p7_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'Gbox Clarification',1500,'Gbox Clarification')"><span><i class="fab fa-apple"></i> Gbox Clarification</span><b>Rs 1500</b></div>
+                        <div class="price-item" onclick="selectItem(this,'FLUORITE 1 DAY',550,'1 DAYs FluoRite FF')"><span><i class="fab fa-apple"></i> 1 DAY ACCESS</span><b>Rs 550</b></div>
+                        <div class="price-item" onclick="selectItem(this,'FLUORITE 7 DAY',1550,'7 DAYs FluoRite FF')"><span><i class="fab fa-apple"></i> 7 DAYS ACCESS</span><b>Rs 1550</b></div>
+                        <div class="price-item" onclick="selectItem(this,'FLUORITE 30 DAY',3200,'30 DAYs FluoRite FF')"><span><i class="fab fa-apple"></i> 30 DAYS ACCESS</span><b>Rs 3200</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== PRIME HOOK ===== -->
+                <div class="product-row" data-tags="nonroot" data-name="PRIME HOOK" data-pid="48" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p8_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/x8ChBQPd/IMG-20260421-102934-585.jpg" alt="Prime Hook"></div>
+                        <div class="prod-details">
+                            <h3>PRIME HOOK <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-nonroot"><i class="fas fa-mobile-alt"></i> NONROOT</span>
+                                <span class="prod-platform"><i class="fas fa-bug"></i> Mod APK</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">4 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p8_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'PRIME 1 DAY',100,'1 Days Nonroot')"><span><i class="fas fa-bug"></i> 1 DAY ACCESS</span><b>Rs 100</b></div>
+                        <div class="price-item" onclick="selectItem(this,'PRIME 3 DAY',160,'3 Days Nonroot')"><span><i class="fas fa-bug"></i> 3 DAYS ACCESS</span><b>Rs 160</b></div>
+                        <div class="price-item" onclick="selectItem(this,'PRIME 7 DAY',300,'7 Days NonRoot')"><span><i class="fas fa-bug"></i> 7 DAYS ACCESS</span><b>Rs 300</b></div>
+                        <div class="price-item" onclick="selectItem(this,'PRIME 10 DAY',500,'10 Days Nonroot')"><span><i class="fas fa-bug"></i> 10 DAYS ACCESS</span><b>Rs 500</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== HAXX-CKER PRO ===== -->
+                <div class="product-row" data-tags="root" data-name="HAXX-CKER PRO ANDROID ROOT" data-pid="64" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p9_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/HLxmsSCy/Screenshot-20260425-150832.jpg" alt="Haxx-cker Pro"></div>
+                        <div class="prod-details">
+                            <h3>HAXX-CKER PRO ANDROID <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-root"><i class="fas fa-bug"></i> ROOT</span>
+                                <span class="prod-platform"><i class="fas fa-mobile-alt"></i> Root Mod APK</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">1 PLAN</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p9_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'HAXX-CKER PRO ROOT DAY',1500,'10 DaYs')"><span><i class="fas fa-bug"></i> 10 DAY ACCESS</span><b>Rs 1500</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== BR MOD ROOT ===== -->
+                <div class="product-row" data-tags="root" data-name="BR MOD ROOT" data-pid="67" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p10_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/65Fdfcgp/Screenshot-20260425-150006.jpg" alt="BR Mod Root"></div>
+                        <div class="prod-details">
+                            <h3>BR MOD ROOT <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-root"><i class="fas fa-bug"></i> ROOT</span>
+                                <span class="prod-platform"><i class="fas fa-crosshairs"></i> Main ID Safe</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">4 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p10_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'BR 1 DAY',150,'1 DaYs')"><span><i class="fas fa-crosshairs"></i> 1 DAY ACCESS</span><b>Rs 150</b></div>
+                        <div class="price-item" onclick="selectItem(this,'BR 7 DAY',450,'7 DaYs')"><span><i class="fas fa-crosshairs"></i> 7 DAYS ACCESS</span><b>Rs 450</b></div>
+                        <div class="price-item" onclick="selectItem(this,'BR 15 DAY',750,'15 DaYs')"><span><i class="fas fa-crosshairs"></i> 15 DAYS ACCESS</span><b>Rs 750</b></div>
+                        <div class="price-item" onclick="selectItem(this,'BR MOD 30 DAY',1250,'30 DaYs')"><span><i class="fas fa-crosshairs"></i> 30 DAYS ACCESS</span><b>Rs 1250</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== BR MOD PC ===== -->
+                <div class="product-row" data-tags="pc" data-name="BR MOD PC" data-pid="49" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p11_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/65Fdfcgp/Screenshot-20260425-150006.jpg" alt="BR PC"></div>
+                        <div class="prod-details">
+                            <h3>BR MOD PC <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-pc"><i class="fas fa-desktop"></i> PC</span>
+                                <span class="prod-platform"><i class="fas fa-laptop"></i> Emulator Safe</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">6 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p11_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'BR PC 1 DAY',180,'1 Day Pc Aim Silent')"><span><i class="fas fa-laptop"></i> 1 DAY ACCESS</span><b>Rs 180</b></div>
+                        <div class="price-item" onclick="selectItem(this,'BR PC 10 DAY',650,'10 Days Pc Aim Silent')"><span><i class="fas fa-laptop"></i> 10 DAYS ACCESS</span><b>Rs 650</b></div>
+                        <div class="price-item" onclick="selectItem(this,'BR PC 30 DAY',1250,'30 Days Pc Aim Silent')"><span><i class="fas fa-laptop"></i> 30 DAYS ACCESS</span><b>Rs 1250</b></div>
+                        <div class="price-item" onclick="selectItem(this,'BR PC BYPASS 1 DAY',250,'1 Day Pc Bypass + Silent')"><span><i class="fas fa-bolt"></i> 1 DAY (BYPASS+AIM)</span><b>Rs 250</b></div>
+                        <div class="price-item" onclick="selectItem(this,'BR PC BYPASS 10 DAY',750,'10 Days Pc Bypass + Silent')"><span><i class="fas fa-bolt"></i> 10 DAYS (BYPASS+AIM)</span><b>Rs 750</b></div>
+                        <div class="price-item" onclick="selectItem(this,'BR PC BYPASS 30 DAY',1450,'30 Days Pc Bypass + Silent')"><span><i class="fas fa-bolt"></i> 30 DAYS (BYPASS+AIM)</span><b>Rs 1450</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== XYZ ROOT ===== -->
+                <div class="product-row" data-tags="root" data-name="XYZ ROOT" data-pid="66" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p12_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/Y0HwXZkt/IMG-20260430-190421-873.jpg" alt="XYZ Root"></div>
+                        <div class="prod-details">
+                            <h3>XYZ ROOT <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-root"><i class="fas fa-bug"></i> ROOT</span>
+                                <span class="prod-platform"><i class="fas fa-shield-alt"></i> Brutal Mod</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">4 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p12_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'XYZ 3 DAY',140,'3 Days')"><span><i class="fas fa-shield-alt"></i> 3 DAYS ACCESS</span><b>Rs 140</b></div>
+                        <div class="price-item" onclick="selectItem(this,'XYZ 7 DAY',240,'7 Days')"><span><i class="fas fa-shield-alt"></i> 7 DAYS ACCESS</span><b>Rs 240</b></div>
+                        <div class="price-item" onclick="selectItem(this,'XYZ 15 DAY',450,'15 Days')"><span><i class="fas fa-shield-alt"></i> 15 DAYS ACCESS</span><b>Rs 450</b></div>
+                        <div class="price-item" onclick="selectItem(this,'XYZ 30 DAY',850,'30 Days')"><span><i class="fas fa-shield-alt"></i> 30 DAYS ACCESS</span><b>Rs 850</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== HAX-BLADE ROOT ===== -->
+                <div class="product-row" data-tags="root" data-name="HAX-BLADE ANDROID" data-pid="71" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p13_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/GthdhvTm/IMG-20260605-190421-406.png" alt="Hax-Blade"></div>
+                        <div class="prod-details">
+                            <h3>HAX-BLADE ANDROID <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-root"><i class="fas fa-bug"></i> ROOT</span>
+                                <span class="prod-platform"><i class="fas fa-mobile-alt"></i> Root Mod APK</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">4 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p13_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'HAX BLADE 1 DAY',120,'1 DaYs')"><span><i class="fas fa-bug"></i> 1 DAY ACCESS</span><b>Rs 120</b></div>
+                        <div class="price-item" onclick="selectItem(this,'HAX BLADE 10 DAY',300,'10 DaYs')"><span><i class="fas fa-bug"></i> 10 DAYS ACCESS</span><b>Rs 300</b></div>
+                        <div class="price-item" onclick="selectItem(this,'HAX BLADE 20 DAY',550,'20 DaYs')"><span><i class="fas fa-bug"></i> 20 DAYS ACCESS</span><b>Rs 550</b></div>
+                        <div class="price-item" onclick="selectItem(this,'HAX BLADE 30 DAY',850,'30 DaYs')"><span><i class="fas fa-bug"></i> 30 DAYS ACCESS</span><b>Rs 850</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== HIKARI MOD ROOT ===== -->
+                <div class="product-row" data-tags="root" data-name="HIKARI MOD ANDROID" data-pid="72" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p14_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/k5kH3wM4/Screenshot-20260605-083930.jpg" alt="Hikari Mod"></div>
+                        <div class="prod-details">
+                            <h3>HIKARI MOD ANDROID <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-root"><i class="fas fa-bug"></i> ROOT</span>
+                                <span class="prod-platform"><i class="fas fa-mobile-alt"></i> Root Mod APK</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">4 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p14_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'HIKARI 1 DAY',120,'1 Days')"><span><i class="fas fa-bug"></i> 1 DAY ACCESS</span><b>Rs 120</b></div>
+                        <div class="price-item" onclick="selectItem(this,'HIKARI 3 DAY',200,'3 Days')"><span><i class="fas fa-bug"></i> 3 DAYS ACCESS</span><b>Rs 200</b></div>
+                        <div class="price-item" onclick="selectItem(this,'HIKARI 7 DAY',350,'7 Days')"><span><i class="fas fa-bug"></i> 7 DAYS ACCESS</span><b>Rs 350</b></div>
+                        <div class="price-item" onclick="selectItem(this,'HIKARI 30 DAY',850,'30 Days')"><span><i class="fas fa-bug"></i> 30 DAYS ACCESS</span><b>Rs 850</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== KOS MOD ROOT ===== -->
+                <div class="product-row" data-tags="root" data-name="KOS MOD ANDROID" data-pid="74" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p15_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/R098B4HF/file-0000000031fc720886d5eb5b766c5d0b.png" alt="Kos Mod"></div>
+                        <div class="prod-details">
+                            <h3>KOS MOD ANDROID <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-root"><i class="fas fa-bug"></i> ROOT</span>
+                                <span class="prod-platform"><i class="fas fa-mobile-alt"></i> Root Mod APK</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">3 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p15_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'KOS MOD 1 DAY',160,'1 DaYs')"><span><i class="fas fa-bug"></i> 1 DAY ACCESS</span><b>Rs 160</b></div>
+                        <div class="price-item" onclick="selectItem(this,'KOS MOD 7 DAY',550,'7 DaYs')"><span><i class="fas fa-bug"></i> 7 DAYS ACCESS</span><b>Rs 550</b></div>
+                        <div class="price-item" onclick="selectItem(this,'KOS MOD 30 DAY',1550,'30 DaYs')"><span><i class="fas fa-bug"></i> 30 DAYS ACCESS</span><b>Rs 1550</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== IOS MIGUL ===== -->
+                <div class="product-row" data-tags="ios" data-name="IOS MIGUL" data-pid="69" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p16_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/MHhPrSwQ/file-00000000b7bc7208b6362b0658f64e7e.png" alt="iOS Migul"></div>
+                        <div class="prod-details">
+                            <h3>IOS MIGUL <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-ios"><i class="fab fa-apple"></i> iOS</span>
+                                <span class="prod-platform"><i class="fab fa-apple"></i> iPhone</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">7 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p16_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'Gbox Clarification',1500,'Gbox Clarification')"><span><i class="fab fa-apple"></i> Gbox Clarification</span><b>Rs 1500</b></div>
+                        <div class="price-item" onclick="selectItem(this,'MIGUL IOS BASIC 1 DAY',400,'1 DaYs Basic')"><span><i class="fab fa-apple"></i> 1 DAY BASIC</span><b>Rs 400</b></div>
+                        <div class="price-item" onclick="selectItem(this,'MIGUL IOS BASIC 7 DAY',900,'7 DaYs Basic')"><span><i class="fab fa-apple"></i> 7 DAYS BASIC</span><b>Rs 900</b></div>
+                        <div class="price-item" onclick="selectItem(this,'MIGUL IOS BASIC 30 DAY',1800,'30 DaYs Basic')"><span><i class="fab fa-apple"></i> 30 DAYS BASIC</span><b>Rs 1800</b></div>
+                        <div class="price-item" onclick="selectItem(this,'MIGUL IOS PRO 1 DAY',550,'1 DaYs PRO')"><span><i class="fab fa-apple"></i> 1 DAY PRO</span><b>Rs 550</b></div>
+                        <div class="price-item" onclick="selectItem(this,'MIGUL IOS PRO 7 DAY',1550,'7 DaYs PRO')"><span><i class="fab fa-apple"></i> 7 DAYS PRO</span><b>Rs 1550</b></div>
+                        <div class="price-item" onclick="selectItem(this,'MIGUL IOS 30 PRO DAY',3200,'30 DaYs PRO')"><span><i class="fab fa-apple"></i> 30 DAYS PRO</span><b>Rs 3200</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+                <!-- ===== NEO STRIKE ROOT ===== -->
+                <div class="product-row" data-tags="root" data-name="NEO STRIKE ANDROID" data-pid="70" data-external="true">
+                    <div class="product-card" onclick="togglePrices('p17_list', this)">
+                        <div class="prod-img"><img src="https://i.postimg.cc/fbjGtJN9/file-00000000f5b47208b97547f7d5746409.png" alt="Neo Strike"></div>
+                        <div class="prod-details">
+                            <h3>NEO STRIKE ANDROID <span class="reseller-badge online"><i class="fas fa-bolt"></i> RESELLER</span></h3>
+                            <div class="prod-meta">
+                                <span class="prod-tag tag-root"><i class="fas fa-bug"></i> ROOT</span>
+                                <span class="prod-platform"><i class="fas fa-mobile-alt"></i> Root Mod APK</span>
+                                <span class="auto-approve-badge"><i class="fas fa-robot"></i> AUTO-KEY</span>
+                            </div>
+                        </div>
+                        <span class="prod-badge">5 PLANS</span>
+                        <i class="fas fa-chevron-down prod-arrow"></i>
+                    </div>
+                    <div id="p17_list" class="price-list hidden">
+                        <div class="price-item" onclick="selectItem(this,'NEO STRIKE 1 DAY',120,'1 DaYs')"><span><i class="fas fa-bug"></i> 1 DAY ACCESS</span><b>Rs 120</b></div>
+                        <div class="price-item" onclick="selectItem(this,'NEO STRIKE 3 DAY',300,'3 DaYs')"><span><i class="fas fa-bug"></i> 3 DAYS ACCESS</span><b>Rs 300</b></div>
+                        <div class="price-item" onclick="selectItem(this,'NEO STRIKE 7 DAY',500,'7 DaYs')"><span><i class="fas fa-bug"></i> 7 DAYS ACCESS</span><b>Rs 500</b></div>
+                        <div class="price-item" onclick="selectItem(this,'NEO STRIKE 14 DAY',650,'14 DaYs')"><span><i class="fas fa-bug"></i> 14 DAYS ACCESS</span><b>Rs 650</b></div>
+                        <div class="price-item" onclick="selectItem(this,'NEO STRIKE 28 DAY',850,'28 DaYs')"><span><i class="fas fa-bug"></i> 28 DAYS ACCESS</span><b>Rs 850</b></div>
+                        <button class="buy-btn hidden" onclick="startCheckout()"><i class="fas fa-bolt"></i> PROCEED TO BUY</button>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="no-results" id="noResults">
+                <i class="fas fa-search"></i>
+                <p>NO RESULTS FOUND</p>
+                <span id="noResultsMsg">Try a different keyword or filter</span>
+            </div>
+            <div class="store-footer">SRT X CHEATS © 2026 &nbsp;·&nbsp; <i class="fab fa-cloudflare" style="color:#f97316"></i> Protected by Cloudflare</div>
+        </main>
+    </div>
+
+    <!-- ============================================================
+    FULL PAGE API MANAGER (standalone view)
+    ============================================================ -->
+    <div id="apiFullPage" class="api-full-page hidden">
+        <div class="api-full-header">
+            <button class="api-back-btn" onclick="closeApiFullPage()">
+                <i class="fas fa-arrow-left"></i> Back to Store
+            </button>
+            <div class="api-full-title">
+                <i class="fas fa-plug" style="color:var(--accent3);"></i>
+                <span>API Key Manager</span>
+            </div>
+            <div style="width:40px;"></div>
+        </div>
+
+        <div class="api-full-body">
+            <!-- ===== LEFT COLUMN: KEY MANAGEMENT ===== -->
+            <div class="api-full-left">
+                <div class="api-full-card">
+                    <h3><i class="fas fa-key" style="color:var(--accent3);"></i> Your API Keys</h3>
+                    <p style="font-size:13px;color:var(--text3);margin-bottom:14px;">
+                        Generate up to 3 active API keys. Use them to integrate with your own website.
+                    </p>
+                    <div id="apiFullKeyList" style="margin-bottom:14px;"></div>
+                    <button class="cta-btn" onclick="createApiKeyFull()" id="createApiKeyFullBtn" style="background:linear-gradient(135deg,#4338ca,#6366f1);width:100%;">
+                        <i class="fas fa-plus"></i><span>GENERATE NEW API KEY</span>
+                    </button>
+                </div>
+
+                <div class="api-full-card">
+                    <h3><i class="fas fa-info-circle" style="color:var(--accent3);"></i> Your API Endpoint</h3>
+                    <div class="api-endpoint-box">
+                        <code id="apiFullEndpoint">https://srtxcheats.web.app/api/keys?apikey=YOUR_API_KEY</code>
+                        <button onclick="copyApiEndpoint()" class="api-copy-btn"><i class="fas fa-copy"></i></button>
+                    </div>
+                    <p style="font-size:12px;color:var(--text3);margin-top:10px;">
+                        <i class="fas fa-shield-alt" style="color:var(--green);"></i>
+                        Keep your API key secret. Anyone with it can view your purchased keys.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ===== RIGHT COLUMN: INTEGRATION GUIDE + PRODUCT LIST ===== -->
+            <div class="api-full-right">
+                <!-- INTEGRATION GUIDE -->
+                <div class="api-full-card">
+                    <h3><i class="fas fa-code" style="color:var(--accent3);"></i> How to Deploy on Your Website</h3>
+                    <div class="api-integration-steps">
+                        <div class="api-step">
+                            <span class="api-step-num">1</span>
+                            <div>
+                                <b>Get your API key</b>
+                                <p>Generate a key above. Copy it and keep it secure.</p>
+                            </div>
+                        </div>
+                        <div class="api-step">
+                            <span class="api-step-num">2</span>
+                            <div>
+                                <b>Make a request to the endpoint</b>
+                                <p>Send a GET request with your API key as a query parameter.</p>
+                                <pre class="api-code-block">GET https://srtxcheats.web.app/api/keys?apikey=YOUR_KEY</pre>
+                            </div>
+                        </div>
+                        <div class="api-step">
+                            <span class="api-step-num">3</span>
+                            <div>
+                                <b>Parse the JSON response</b>
+                                <p>The API returns all your purchased keys in JSON format.</p>
+                                <pre class="api-code-block" style="font-size:10px;">{
+        "success": true,
+        "uid": "user_uid",
+        "keys": [
+          { "product": "DRIP 1 DAY", "key": "SRTX-XXXX-XXXX", "date": "Jun 27, 2026" }
+        ]
+        }</pre>
+                            </div>
+                        </div>
+                        <div class="api-step">
+                            <span class="api-step-num">4</span>
+                            <div>
+                                <b>Display on your website</b>
+                                <p>Use JavaScript to fetch and display keys to your users.</p>
+                                <pre class="api-code-block" style="font-size:10px;">fetch('https://srtxcheats.web.app/api/keys?apikey=YOUR_KEY')
+        .then(r => r.json())
+        .then(data => {
+          data.keys.forEach(k => {
+            // render key on your page
+          });
+        });</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT LIST FROM HUD.TXT -->
+                <div class="api-full-card">
+                    <h3><i class="fas fa-boxes" style="color:var(--gold);"></i> Product Catalog (PID + Durations)</h3>
+                    <p style="font-size:12px;color:var(--text3);margin-bottom:12px;">
+                        All available products with their PID and duration options. Use these when making API calls.
+                    </p>
+                    <div class="api-product-table-wrap" id="apiProductTableWrap">
+                        <!-- populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+    MODALS (overlay)
+    ============================================================ -->
+    <div id="modalOverlay" class="modal-overlay hidden" onclick="closeModals()">
+        <div class="modal-wrap" onclick="event.stopPropagation()">
+
+            <!-- PROFILE MODAL -->
+            <div id="profileModal" class="modal hidden">
+                <div class="modal-head">
+                    <i class="fas fa-id-card"></i>
+                    <h3>Profile Settings</h3>
+                    <button class="modal-close" onclick="closeModals()"><i class="fas fa-times"></i></button>
+                </div>
+                <p class="modal-desc">Your name and phone auto-fill at checkout.</p>
+                <div class="field-group">
+                    <label>DISPLAY NAME</label>
+                    <div class="field-wrap"><i class="fas fa-user"></i><input type="text" id="profileName" placeholder="Your Full Name"></div>
+                </div>
+                <div class="field-group">
+                    <label>WHATSAPP NUMBER</label>
+                    <div class="field-wrap"><i class="fab fa-whatsapp"></i><input type="number" id="profilePhone" placeholder="Your WhatsApp Number"></div>
+                </div>
+                <button class="cta-btn" onclick="saveProfile()"><span>SAVE PROFILE</span><i class="fas fa-check"></i></button>
+
+                <div class="field-group" style="margin-top:18px;">
+                    <label>EMAIL ADDRESS</label>
+                    <div class="field-wrap with-copy"><i class="fas fa-envelope"></i><input type="text" id="profileEmail" placeholder="—" readonly></div>
+                </div>
+                <div class="field-group">
+                    <label>USER ID (UID)</label>
+                    <div class="field-wrap with-copy">
+                        <i class="fas fa-fingerprint"></i>
+                        <input type="text" id="profileUid" placeholder="—" readonly>
+                        <button type="button" class="field-copy-btn" onclick="copyText(document.getElementById('profileUid').value)"><i class="fas fa-copy"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASSWORD MODAL -->
+            <div id="passModal" class="modal hidden">
+                <div class="modal-head">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Change Password</h3>
+                    <button class="modal-close" onclick="closeModals()"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="field-group">
+                    <label>CURRENT PASSWORD</label>
+                    <div class="field-wrap"><i class="fas fa-unlock"></i><input type="password" id="oldPass" placeholder="Enter current password"></div>
+                </div>
+                <div class="field-group">
+                    <label>NEW PASSWORD</label>
+                    <div class="field-wrap"><i class="fas fa-lock"></i><input type="password" id="newPass" placeholder="Min 6 characters"></div>
+                </div>
+                <button class="cta-btn" onclick="processPassUpdate()"><span>UPDATE PASSWORD</span><i class="fas fa-check"></i></button>
+            </div>
+
+            <!-- ADMIN MSG MODAL -->
+            <div id="msgModal" class="modal hidden">
+                <div class="modal-head">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Official Notice</h3>
+                    <button class="modal-close" onclick="closeModals()"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="admin-msg-box"><p id="adminMsg">Syncing with server, please wait...</p></div>
+                <button class="cta-btn" onclick="closeModals()"><span>CLOSE</span></button>
+            </div>
+
+            <!-- HISTORY MODAL -->
+            <div id="historyModal" class="modal hidden">
+                <div class="modal-head">
+                    <i class="fas fa-receipt"></i>
+                    <h3>Order History</h3>
+                    <button class="modal-close" onclick="closeModals()"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-scroll" id="historyList"><p class="empty-msg">No orders yet.</p></div>
+                <button class="danger-btn" onclick="confirmDeleteHistory()"><i class="fas fa-trash-alt"></i> WIPE ALL RECORDS</button>
+            </div>
+
+            <!-- CHECKOUT MODAL -->
+            <div id="checkoutModal" class="modal hidden">
+                <div class="modal-head">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>Checkout</h3>
+                    <button class="modal-close" onclick="closeModals()"><i class="fas fa-times"></i></button>
+                </div>
+
+                <div id="checkoutStep1">
+                    <div class="order-summary" id="orderSummaryBox"></div>
+                    <div class="field-group">
+                        <label>FULL NAME</label>
+                        <div class="field-wrap"><i class="fas fa-user"></i><input type="text" id="payName" placeholder="Your Full Name"></div>
+                    </div>
+                    <div class="field-group">
+                        <label>WHATSAPP NUMBER</label>
+                        <div class="field-wrap"><i class="fab fa-whatsapp"></i><input type="number" id="payWA" placeholder="Your WhatsApp Number"></div>
+                    </div>
+                    <p class="autofill-note" id="autofillNote"></p>
+
+                    <div class="pm-toggle">
+                        <div class="pm-option active" data-pm="esewa" onclick="setPaymentMethod('esewa')">
+                            <i class="fas fa-mobile-alt" style="color:var(--green);"></i>
+                            eSewa
+                            <span class="sub">admin approval</span>
+                        </div>
+                        <div class="pm-option balance-opt" data-pm="balance" onclick="setPaymentMethod('balance')">
+                            <i class="fas fa-coins" style="color:var(--gold);"></i>
+                            Balance
+                            <span class="sub">auto key</span>
+                        </div>
+                    </div>
+
+                    <div class="insufficient-balance-msg" id="insufficientBalanceMsg">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span>Insufficient balance. <button onclick="closeModals();setTimeout(()=>openModal('topupModal'),300);" style="background:transparent;border:none;color:var(--gold);font-weight:700;cursor:pointer;text-decoration:underline;padding:0;font-size:inherit;">Top up now</button></span>
+                    </div>
+
+                    <div class="modal-btns" style="flex-direction:column;gap:8px;">
+                        <button class="ghost-btn" onclick="closeModals()">CANCEL</button>
+                        <button id="checkoutNextBtn" class="cta-btn" onclick="handleCheckoutNext()">
+                            <span>NEXT → eSewa</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button id="checkoutPayBalanceBtn" class="cta-btn gold hidden" onclick="processBalancePayment()">
+                            <i class="fas fa-coins"></i>
+                            <span>PAY WITH BALANCE</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="checkoutStep2" class="hidden">
+                    <div class="esewa-info-box">
+                        <div class="esewa-logo-row">
+                            <span class="esewa-badge">eSewa</span>
+                            <span class="esewa-pay-label">PAY EXACTLY</span>
+                            <span class="esewa-amount" id="esewaAmount">Rs 0</span>
+                        </div>
+                        <div class="esewa-merchant-row">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>To: <b id="esewaMerchant">9827260865</b></span>
+                        </div>
+                        <p class="esewa-note">⚠️ Pay exact amount. Wrong amount = order cancelled.</p>
+                    </div>
+
+                    <div class="qr-wrap">
+                        <img src="https://i.postimg.cc/zXm07q9C/Screenshot-20260425-142906.jpg" alt="eSewa QR">
+                        <div class="qr-label">Scan with eSewa App</div>
+                    </div>
+
+                    <div class="timer-txt">⏳ <span id="timerSec">15</span>s before proceeding</div>
+
+                    <div class="modal-btns">
+                        <button class="ghost-btn" onclick="closeModals()">CANCEL</button>
+                        <button id="finalPayBtn" class="cta-btn disabled" onclick="showVerifyStep()">
+                            <span>I HAVE PAID</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="checkoutStep3" class="hidden">
+                    <div class="verify-header">
+                        <i class="fas fa-paper-plane verify-icon"></i>
+                        <p>Enter your eSewa details. Admin will verify &amp; deliver your key.</p>
+                    </div>
+                    <div class="field-group">
+                        <label>YOUR ESEWA ID (Phone/Email)</label>
+                        <div class="field-wrap"><i class="fas fa-user-circle"></i><input type="text" id="esewaUserId" placeholder="9800000000 or email@esewa.com.np"></div>
+                    </div>
+                    <div class="field-group">
+                        <label>ESEWA TRANSACTION ID</label>
+                        <div class="field-wrap"><i class="fas fa-receipt"></i><input type="text" id="esewaTransCode" placeholder="e.g. 01XV31A" autocomplete="off" style="text-transform:uppercase;"></div>
+                    </div>
+                    <p class="esewa-note" style="margin-bottom:14px;">
+                        <i class="fas fa-info-circle"></i> Find your transaction ID in eSewa → History → last payment.<br>
+                        <i class="fas fa-clock" style="color:var(--orange);"></i> Key delivered within minutes during service hours (8AM–10PM).
+                    </p>
+                    <div class="modal-btns">
+                        <button class="ghost-btn" onclick="closeModals()">CANCEL</button>
+                        <button id="verifyPayBtn" class="cta-btn" onclick="submitEsewaOrder()">
+                            <i class="fas fa-paper-plane"></i><span>SUBMIT ORDER</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TOP-UP MODAL -->
+            <div id="topupModal" class="modal hidden">
+                <div class="modal-head">
+                    <i class="fas fa-plus-circle" style="color:var(--gold);"></i>
+                    <h3 style="color:var(--gold);">Top-up Balance</h3>
+                    <button class="modal-close" onclick="closeModals()"><i class="fas fa-times"></i></button>
+                </div>
+
+                <div id="topupStep1">
+                    <p class="modal-desc">Add funds to your wallet using eSewa. Admin will verify and credit your balance.</p>
+                    <div class="field-group">
+                        <label>AMOUNT (Rs)</label>
+                        <div class="field-wrap">
+                            <i class="fas fa-coins" style="color:var(--gold);"></i>
+                            <input type="number" id="topupAmount" placeholder="Enter amount" min="50" value="100" style="font-weight:600;" oninput="updateTopupDisplay()">
+                        </div>
+                    </div>
+                    <div class="quick-amounts">
+                        <button type="button" class="quick-amt" onclick="setTopupAmount(100,this)">Rs 100</button>
+                        <button type="button" class="quick-amt" onclick="setTopupAmount(200,this)">Rs 200</button>
+                        <button type="button" class="quick-amt" onclick="setTopupAmount(500,this)">Rs 500</button>
+                        <button type="button" class="quick-amt" onclick="setTopupAmount(1000,this)">Rs 1000</button>
+                    </div>
+
+                    <div class="esewa-info-box" style="margin-top:12px;">
+                        <div class="esewa-logo-row">
+                            <span class="esewa-badge">eSewa</span>
+                            <span class="esewa-pay-label">PAY EXACTLY</span>
+                            <span class="esewa-amount" id="topupEsewaAmount">Rs 100</span>
+                        </div>
+                        <div class="esewa-merchant-row">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>To: <b id="topupMerchant">9827260865</b></span>
+                        </div>
+                        <p class="esewa-note">⚠️ Pay exact amount. Wrong amount = top-up cancelled.</p>
+                    </div>
+
+                    <div class="qr-wrap">
+                        <img src="https://i.postimg.cc/zXm07q9C/Screenshot-20260425-142906.jpg" alt="eSewa QR">
+                        <div class="qr-label">Scan with eSewa App</div>
+                    </div>
+
+                    <button class="cta-btn" onclick="showTopupStep2()" style="margin-top:10px;">
+                        <span>I HAVE PAID</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="ghost-btn" onclick="closeModals()" style="width:100%;margin-top:6px;">CANCEL</button>
+                </div>
+
+                <div id="topupStep2" class="hidden">
+                    <div class="verify-header">
+                        <i class="fas fa-paper-plane verify-icon"></i>
+                        <p>Enter your eSewa details. Admin will verify &amp; credit your balance shortly.</p>
+                    </div>
+                    <div class="field-group">
+                        <label>YOUR ESEWA ID (Phone/Email)</label>
+                        <div class="field-wrap"><i class="fas fa-user-circle"></i><input type="text" id="topupEsewaUserId" placeholder="9800000000 or email@esewa.com.np"></div>
+                    </div>
+                    <div class="field-group">
+                        <label>ESEWA TRANSACTION ID</label>
+                        <div class="field-wrap"><i class="fas fa-receipt"></i><input type="text" id="topupTransCode" placeholder="e.g. 01XV31A" autocomplete="off" style="text-transform:uppercase;"></div>
+                    </div>
+                    <div class="topup-summary" id="topupSummary">
+                        <span>Top-up Amount: <b id="topupSummaryAmount">Rs 100</b></span>
+                    </div>
+                    <p class="esewa-note" style="margin-bottom:14px;">
+                        <i class="fas fa-info-circle"></i> Find your transaction ID in eSewa → History → last payment.<br>
+                        <i class="fas fa-clock" style="color:var(--orange);"></i> Balance credited within minutes during service hours (8AM–10PM).
+                    </p>
+                    <div class="modal-btns">
+                        <button class="ghost-btn" onclick="closeModals()">CANCEL</button>
+                        <button id="topupSubmitBtn" class="cta-btn" onclick="submitTopup()">
+                            <i class="fas fa-paper-plane"></i><span>SUBMIT TOP-UP</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DELETE WARNING -->
+            <div id="deleteWarning" class="modal hidden">
+                <div class="warn-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                <h3>Confirm Delete</h3>
+                <p>Delete all order records? This cannot be undone.</p>
+                <div class="modal-btns" style="justify-content:center">
+                    <button class="ghost-btn" onclick="hideDeleteWarning()">KEEP</button>
+                    <button class="danger-btn" onclick="processHistoryDelete()">DELETE ALL</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============================================================
+    AUTO POPUP
+    ============================================================ -->
+    <div id="autoPopup" class="auto-popup hidden">
+        <div class="popup-card">
+            <button class="popup-close" onclick="document.getElementById('autoPopup').classList.add('hidden')">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="popupMsg">
+                <div class="popup-status status-approved">KEY DELIVERED!</div>
+                <p>Your key has been generated!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+    FIREBASE + APP SCRIPT
+    ============================================================ -->
+    <script type="importmap">
+        {
+            "imports": {
+                "firebase/app": "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js",
+                "firebase/auth": "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js",
+                "firebase/firestore": "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"
+            }
+        }
+    </script>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

@@ -41,7 +41,7 @@ const firebaseConfig = {
 };
 
 // Cloudflare Worker URL — replace with your deployed worker URL
-const WORKER_URL = "telegram-info.samratsubedi163.workers.dev";
+const WORKER_URL = "https://admin1.srtxcheat.workers.dev/";
 
 // ============================================================
 // APP INIT
